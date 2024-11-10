@@ -6,6 +6,8 @@
  are helpful for using a computer. The program contains Binary, Hexadecimal,
  ASCII, and more computer relevent conversions.
 
+ Made in C++
+
  Made by MrScriptDev
  Property of MrScriptDev
  For educational and personal use only
