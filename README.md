@@ -4,7 +4,7 @@
 
  CompConv is a program that allows you to convert numbers into things that
  are helpful for using a computer. The program contains Binary, Hexadecimal,
- ASCII, and more computer relevent conversions. Made in C++
+ ASCII, and more computer relevent conversions.
 
  Made by MrScriptDev
 
