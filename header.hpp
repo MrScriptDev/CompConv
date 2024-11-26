@@ -3,7 +3,7 @@ void menu();
 
 void binary();
 
-void hexidecimal();
+void hexadecimal();
 
 void ASCII();
 
@@ -20,7 +20,7 @@ void binary_decimal();
 
 
 
-//Hexidecimal Functions
+//Hexadecimal Functions
 void decimal_hex();
 
 void hex_decimal();
@@ -40,7 +40,7 @@ void pull_version();
 void exit_program();
 
 //Conversion Function
-std::string convert(int conversion, std::string input, std::string ComputerStorageUnit = "None");
+std::string convert(int conversion, std::string input, int ComputerStorageUnit = 0, int ComputerStorageTo = 0);
 
 //Extra functions
 

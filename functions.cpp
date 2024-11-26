@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include <sstream>
 
 //Included Files
 #include "header.hpp"
@@ -19,10 +20,11 @@ void menu() {
     //Menu Display & options
     cout << "\n\nSelect the action you would like to perform:";
     cout << "\n1. Binary Conversions";
-    cout << "\n2. Hexidecimal Conversions";
-    cout << "\n3. ASCII Conversions (Coming Soon)";
-    cout << "\n4. Computer Storage Conversions (Coming Later...)";
-    cout << "\n5. EXTRAS/Quit Program";
+    cout << "\n2. Hexadecimal Conversions";
+    cout << "\n3. Octal Conversions (NEW CONCEPT to CompConv! Coming Soon...)";
+    cout << "\n4. ASCII Conversions";
+    cout << "\n5. Computer Storage Conversions (Coming Soon...)";
+    cout << "\n6. EXTRAS/Quit Program";
 
     //Response Processing
 
@@ -30,7 +32,7 @@ void menu() {
 
     getline(cin, option);
 
-    while (option != "1" && option != "2" && option != "3" && option != "4"  && option != "5") {
+    while (option != "1" && option != "2" && option != "3" && option != "4" && option != "5" && option != "6") {
         cout << "\n\nInvalid Option. Please choose an option from above.";
 
         cout << "\n\nENTER OPTION NUMBER: ";
@@ -43,21 +45,19 @@ void menu() {
         binary();
     }
     else if (option == "2") {
-        hexidecimal();
+        hexadecimal();
+    }
+    else if (option == "3") {
         //cout << "\n\nCurrent Version does not contain these conversions\n\n";
         //menu();
     }
-    else if (option == "3") {
-        //ASCII();
-        cout << "\n\nCurrent Version does not contain these conversions\n\n";
-        menu();
-    }
     else if (option == "4") {
-        //CompStore();
-        cout << "\n\nCurrent Version does not contain these conversions\n\n";
-        menu();
+        ASCII();
     }
     else if (option == "5") {
+        CompStore();
+    }
+    else if (option == "6") {
         extras();
     }
 
@@ -105,16 +105,16 @@ void binary() {
 
 }
 
-void hexidecimal() {
+void hexadecimal() {
     //Variables    
     string option;
 
 
     //Menu
-    cout << "\n\n\nHEXIDECIMAL CONVERSIONS";
+    cout << "\n\n\nHEXADECIMAL CONVERSIONS";
     cout << "\n\nSelect the action you would like to perform:";
-    cout << "\n1. Convert Decimal to Hexidecimal";
-    cout << "\n2. Convert Hexidecimal to Decimal";
+    cout << "\n1. Convert Decimal to Hexadecimal";
+    cout << "\n2. Convert Hexadecimal to Decimal";
     cout << "\n3. Menu";
 
     //Response Processing
@@ -185,6 +185,10 @@ void ASCII() {
 void CompStore() {
     //Variables
     string Storage_unit;
+    int Storage_num;
+    int convert_to_num;
+    string amount;
+    string convert_to;
     string option;
 
 
@@ -216,28 +220,123 @@ void CompStore() {
     }
 
 
-    //When the time comes, make this into a switch case
-    if (option == "1") {
-        Storage_unit = "Bit";
+    switch (stoi(option))
+    {
+        case 1:
+            Storage_unit = "Bit";
+            Storage_num = 1;
+            break;
+        
+        case 2:
+            Storage_unit = "Byte";
+            Storage_num = 2;
+            break;
+        
+        case 3:
+            Storage_unit = "Kilobyte";
+            Storage_num = 3;
+            break;
+        
+        case 4:
+            Storage_unit = "Megabyte";
+            Storage_num = 4;
+            break;
+        
+        case 5:
+            Storage_unit = "Gigabyte";
+            Storage_num = 5;
+            break;
+        
+        case 6:
+            Storage_unit = "Terabyte";
+            Storage_num = 6;
+            break;
+        
+        case 7:
+            Storage_unit = "Petabyte";
+            Storage_num = 7;
+            break;
+    
     }
-    else if (option == "2") {
-        Storage_unit = "Byte";
+
+    cout << "\n\n---" << Storage_unit << "(s)---\n\n";
+
+    cout << "Please enter the amount of " << Storage_unit << "(s): ";
+    
+    getline(cin, amount);
+
+    cout << "\n\n---" << amount << " " << Storage_unit << "(s)---\n\n";
+
+    cout << "Select the computer storage unit you would like to convert to";
+    cout << "\n1. Bit(s)";
+    cout << "\n2. Byte(s)";
+    cout << "\n3. Kilobyte(s)";
+    cout << "\n4. Megabyte(s)";
+    cout << "\n5. Gigabyte(s)";
+    cout << "\n6. Terabyte(s)";
+    cout << "\n7. Petabyte(s)";
+
+
+    //Response Processing
+
+    cout << "\n\nENTER OPTION NUMBER: ";
+    
+    getline(cin, option);
+
+    while (option != "1" && option != "2" && option != "3" && option != "4" && option != "5" && option != "6" && option != "7") {
+        cout << "\n\nInvalid Option. Please choose an option from above.";
+
+        cout << "\n\nENTER OPTION NUMBER: ";
+
+        getline(cin, option);
+
     }
-    else if (option == "3") {
-        Storage_unit = "Kilobyte";
+
+    switch (stoi(option))
+    {
+        case 1:
+            convert_to = "Bit";
+            convert_to_num = 1;
+            break;
+        
+        case 2:
+            convert_to = "Byte";
+            convert_to_num = 2;
+            break;
+        
+        case 3:
+            convert_to = "Kilobyte";
+            convert_to_num = 3;
+            break;
+        
+        case 4:
+            convert_to = "Megabyte";
+            convert_to_num = 4;
+            break;
+        
+        case 5:
+            convert_to = "Gigabyte";
+            convert_to_num = 5;
+            break;
+        
+        case 6:
+            convert_to = "Terabyte";
+            convert_to_num = 6;
+            break;
+        
+        case 7:
+            convert_to = "Petabyte";
+            convert_to_num = 7;
+            break;
+    
     }
-    else if (option == "4") {
-        Storage_unit = "Megabyte";
-    }
-    else if (option == "5") {
-        Storage_unit = "Gigabyte";
-    }
-    else if (option == "6") {
-        Storage_unit = "Terabyte";
-    }
-    else if (option == "7") {
-        Storage_unit = "Petabyte";
-    }
+
+
+    cout << "\n\n---" << amount << " " << Storage_unit << "(s) --> " << convert_to << "(s)---\n\n";
+
+    cout << "\n Converting " << amount << " " << Storage_unit << "(s) into " << convert_to << "(s)...\n\n";
+
+    cout << amount << " " << Storage_unit << "(s) in " << convert_to << "(s) is " << convert(7, amount, Storage_num, convert_to_num);
 
 
 }
@@ -338,7 +437,7 @@ void binary_decimal() {
 
 
 
-//Hexidecimal Functions
+//Hexadecimal Functions
 void decimal_hex() {
     //Variables
     string input;
@@ -346,22 +445,22 @@ void decimal_hex() {
 
     //User Interface & input retrieval
     cout << "\n\n\n\n-----------------------------\n\n";
-    cout << "DECIMAL --> HEXIDECIMAL";
+    cout << "DECIMAL --> HEXADECIMAL";
     cout << "\nProgram will close if characters other than numbers are entered.";
-    cout << "\n\nPlease enter the number you would like to convert to Hexidecimal: ";
+    cout << "\n\nPlease enter the number you would like to convert to Hexadecimal: ";
 
     getline(cin, input);
 
     result = convert(3, input);
 
 
-    cout << input << " in Hexidecimal is: " << result;
+    cout << input << " in Hexadecimal is: " << result;
 
     cout << "\n\nPress ENTER to proceed";
 
     getline(cin, input);
 
-    hexidecimal();
+    hexadecimal();
 }
 
 void hex_decimal() {
@@ -371,9 +470,9 @@ void hex_decimal() {
 
     //User Interface & input retrieval
     cout << "\n\n\n\n-----------------------------\n\n";
-    cout << "HEXIDECIMAL --> DECIMAL";
+    cout << "HEXADECIMAL --> DECIMAL";
     cout << "\nProgram will give wrong conversions if characters other than \n1, 2, 3, 4, 5, 6, 7, 8, 9, 0, A, B , C, D, E, and F are entered.";
-    cout << "\n\nPlease enter the number you would like to convert to Hexidecimal: ";
+    cout << "\n\nPlease enter the number you would like to convert to Decimal: ";
 
     getline(cin, input);
 
@@ -386,18 +485,60 @@ void hex_decimal() {
 
     getline(cin, input);
 
-    hexidecimal();
+    hexadecimal();
 }
 
 
 
 //ASCII Functions
 void text_ASCII() {
+    //Variables
+    string input;
+    string result;
 
+    //User Interface & input retrieval
+    cout << "\n\n\n\n-----------------------------\n\n";
+    cout << "TEXT --> ASCII";
+    cout << "\nYou may enter ANYTHING, even full sentances or paragraphs. It will convert each character.";
+    cout << "\n\nPlease enter the text you would like to convert to ASCII: ";
+
+    getline(cin, input);
+
+    result = convert(5, input);
+
+
+    cout << "Each individual character is above. Here is " << input << " in ASCII code:\n\n" << result;
+
+    cout << "\n\nPress ENTER to proceed";
+
+    getline(cin, input);
+
+    ASCII();
 }
 
 void ASCII_text() {
+    //Variables
+    string input;
+    string result;
 
+    //User Interface & input retrieval
+    cout << "\n\n\n\n-----------------------------\n\n";
+    cout << "ASCII --> TEXT";
+    cout << "\nPlease enter your ASCII code with SPACES seperating each number.";
+    cout << "\n\nPlease enter the ASCII you would like to convert to text: ";
+
+    getline(cin, input);
+
+    result = convert(6, input);
+
+
+    cout << "Each individual character is above. Here is " << input << " in text:\n\n" << result;
+
+    cout << "\n\nPress ENTER to proceed";
+
+    getline(cin, input);
+
+    ASCII();
 }
 
 
@@ -408,16 +549,19 @@ void pull_version() {
 
     cout << "\n------------------------------\n";
 
-    cout << "\nVersion: v1.0.0";
+    cout << "\nVersion: v2.1.0";
 
     cout << "\n\nNotes about this version:";
-    cout << "\n- Current Version contains only binary and hexidecimal conversions";
+    cout << "\n- Current Version contains binary, hexadecimal, and ASCII conversions";
     cout << "\n- More necessary computer conversions coming in the future";
-    cout << "\n- CompConv is now on GitHub";
+    cout << "\n- Computer Storage Conversions in development soon";
+    cout << "\n- Make sure to keep up-to-date on this GitHub repository to get the latest versions!";
+    cout << "\n- PLEASE report any other bugs that are found";
 
     cout << "\n\nChangelog:";
-    cout << "\n- HEXIDECIMAL CONVERSIONS are out NOW!";
-    cout << "\n- Now posted on GitHub.com, find it on MrScriptDev's CompConv Repository";
+    cout << "\n- Fixed Hexadecimal Bug";
+    cout << "\n- Hexadecimal numbers no longer ignore 0s and don't place 0s in front of Fs";
+    cout << "\n- Hex to Deci error fixed. Text displayed \"Please enter the number you would like to convert to Hexadecimal: \" prior to bug fix";
     
 
     cout << "\n\n\nOnly personal and educational use permitted";
@@ -459,7 +603,7 @@ void exit_program() {
 
 //Conversion Function
 
-string convert(int conversion, string input, string ComputerStorageUnit) {
+string convert(int conversion, string input, int ComputerStorageUnit, int ComputerStorageTo) {
 
     //Variables
     string product;
@@ -471,8 +615,12 @@ string convert(int conversion, string input, string ComputerStorageUnit) {
     string hexing_product;
     string hex_group;
     string hex_end;
+    string decode;
 
+    stringstream breaking(input);
 
+    double CS_amount;
+    string toConvert;
     
     
 
@@ -590,7 +738,7 @@ string convert(int conversion, string input, string ComputerStorageUnit) {
 
             cout << endl << "How to find:\n\n";
 
-            cout << "To find the Hexidecimal number of any number, you have to\n";
+            cout << "To find the Hexadecimal number of any number, you have to\n";
             cout << "first find the binary value of the number.\n\n";
 
             cout << "To find the binary number of any number, you must first\n";
@@ -650,10 +798,10 @@ string convert(int conversion, string input, string ComputerStorageUnit) {
             cout << "15 = F\n";
             
             cout << "\nNow, write each number/letter result from your groups in order\n";
-            cout << "from left to right. This is your hexidecimal number.";
+            cout << "from left to right. This is your hexadecimal number.";
 
             cout << "\n\nFor example, here is how you convert " << hexing_product << " (the\n";
-            cout << "binary value of " << input << ") to hexidecimal:\n";
+            cout << "binary value of " << input << ") to hexadecimal:\n";
 
             
             while (hexing_product.length() % 4 != 0) {
@@ -735,8 +883,8 @@ string convert(int conversion, string input, string ComputerStorageUnit) {
             hexing_product = "";
 
 
-            cout << "\n\nTo find the decimal number of any hexidecimal number, you must first\n";
-            cout << "find the binary number of each digit in your hexidecimal number. Here are\n";
+            cout << "\n\nTo find the decimal number of any hexadecimal number, you must first\n";
+            cout << "find the binary number of each digit in your hexadecimal number. Here are\n";
             cout << "the numbers you should make the letters in your hex number to: \n\n";
 
             cout << "10 = A\n";
@@ -787,14 +935,16 @@ string convert(int conversion, string input, string ComputerStorageUnit) {
 
                     cout << endl << value << endl;
 
-                    while (value >= pow(2, powerof)) {
+                    while (value > pow(2, powerof)) {
                         powerof++;
                     }
                     
+                    if (pow(2, powerof) > value) {
+                        powerof--;
+                    }
+                    
 
-                    powerof--;
-
-                    while (value > 0) {
+                    do {
 
                         cout << "2^" << powerof << " = " << pow(2, powerof) << endl;
                         if (value >= pow(2, powerof)) {
@@ -808,6 +958,9 @@ string convert(int conversion, string input, string ComputerStorageUnit) {
                         }
                         powerof--;
                     }
+                    while (value > 0);
+
+
                     while (powerof > 0 - 1) {
                         hex_end += "0";
                         powerof--;
@@ -823,9 +976,9 @@ string convert(int conversion, string input, string ComputerStorageUnit) {
 
                 }
 
-                cout << "\nThis is your hexidecimal number in binary form. See\n";
+                cout << "\nThis is your hexadecimal number in binary form. See\n";
                 cout << "how it is squished together starting from the binary number\n";
-                cout << "of your first hexidecimal number? That is important, because\n";
+                cout << "of your first hexadecimal number? That is important, because\n";
                 cout << "you now have to take that full binary number and convert it back\n";
                 cout << "to decimal as you normally would, starting from the right with 2^0\n";
                 cout << "to the left, increasing your exponent on the 2.\n";
@@ -864,7 +1017,74 @@ string convert(int conversion, string input, string ComputerStorageUnit) {
                 cout << endl << endl << product << endl << endl;
 
                 break;
+            
+
+
+        case 5:
+
+            cout << endl;
+            cout << "To convert text into the American Standard Code for Information Interchange\n";
+            cout << "(ASCII), you can search the Internet for a chart. There is no complex math\n";
+            cout << "involved, you just need to look on this chart and see which number\n";
+            cout << "corresponds with the character you are looking to convert.\n\n";
+
+            product = "";
+
+            for (int i = 0; i < input.length(); i++) {
+                cout << input[i] << " in ASCII is " << int(input[i]) << endl;
+                product += to_string(int(input[i])) + " ";
             }
+
+            cout << endl;
+
+            break;
+        
+        case 6:
+
+            cout << endl;
+            cout << "To convert American Standard Code for Information Interchange (ASCII)\n";
+            cout << "into text, you can search the Internet for a chart. There is no complex math\n";
+            cout << "involved, you just need to look on this chart and see which number\n";
+            cout << "corresponds with the character you are looking to convert.\n\n";
+
+            
+
+            while (getline(breaking, decode, ' ')) {
+                
+                product += char(stoi(decode));
+
+                cout << decode << " in text is " << char(stoi(decode)) << endl;
+
+                decode = "";
+            }
+
+
+            cout << endl;
+
+            break;
+
+        case 7:
+
+            toConvert = "1";
+            value = 0;
+            CS_amount = stoi(input);
+
+            if (ComputerStorageUnit < ComputerStorageTo) {
+                cout << "\n\nprocessing\n\n";
+                for (int i = 0; i < ComputerStorageTo - ComputerStorageUnit; i++) {
+                    cout << CS_amount << endl;
+                    CS_amount = CS_amount / 1000;
+                    product = to_string(CS_amount);
+                }
+                
+            }
+            
+
+            
+
+            break;
+        
+    }
 
 
 
