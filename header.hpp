@@ -5,6 +5,8 @@ void binary();
 
 void hexadecimal();
 
+void octal();
+
 void ASCII();
 
 void CompStore();

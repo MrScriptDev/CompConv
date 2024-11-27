@@ -23,7 +23,7 @@ void menu() {
     cout << "\n2. Hexadecimal Conversions";
     cout << "\n3. Octal Conversions (NEW CONCEPT to CompConv! Coming Soon...)";
     cout << "\n4. ASCII Conversions";
-    cout << "\n5. Computer Storage Conversions (Coming Soon...)";
+    cout << "\n5. Computer Storage Conversions";
     cout << "\n6. EXTRAS/Quit Program";
 
     //Response Processing
@@ -48,8 +48,9 @@ void menu() {
         hexadecimal();
     }
     else if (option == "3") {
-        //cout << "\n\nCurrent Version does not contain these conversions\n\n";
-        //menu();
+        cout << "\n\nCurrent Version does not contain these conversions\n\n";
+        menu();
+        octal();
     }
     else if (option == "4") {
         ASCII();
@@ -143,6 +144,44 @@ void hexadecimal() {
     }
 }
 
+void octal() {
+        //Variables    
+    string option;
+
+
+    //Menu
+    cout << "\n\n\nOCTAL CONVERSIONS";
+    cout << "\n\nSelect the action you would like to perform:";
+    cout << "\n1. Convert Decimal to Hexadecimal";
+    cout << "\n2. Convert Hexadecimal to Decimal";
+    cout << "\n3. Menu";
+
+    //Response Processing
+
+    cout << "\n\nENTER OPTION NUMBER: ";
+
+    getline(cin, option);
+
+    while (option != "1" && option != "2" && option != "3") {
+        cout << "\n\nInvalid Option. Please choose an option from above.";
+
+        cout << "\n\nENTER OPTION NUMBER: ";
+
+        getline(cin, option);
+
+    }
+
+    if (option == "1") {
+        decimal_hex();
+    }
+    else if (option == "2") {
+        hex_decimal();
+    }
+    else if (option == "3") {
+        menu();
+    }
+}
+
 void ASCII() {
     //Variables    
     string option;
@@ -195,13 +234,12 @@ void CompStore() {
     //Menu
     cout << "\n\n\nComputer Storage CONVERSIONS";
     cout << "\n\nSelect the computer storage unit (You will enter the amount after this step):";
-    cout << "\n1. Bit(s)";
-    cout << "\n2. Byte(s)";
-    cout << "\n3. Kilobyte(s)";
-    cout << "\n4. Megabyte(s)";
-    cout << "\n5. Gigabyte(s)";
-    cout << "\n6. Terabyte(s)";
-    cout << "\n7. Petabyte(s)";
+    cout << "\n1. Byte(s)";
+    cout << "\n2. Kilobyte(s)";
+    cout << "\n3. Megabyte(s)";
+    cout << "\n4. Gigabyte(s)";
+    cout << "\n5. Terabyte(s)";
+    cout << "\n6. Petabyte(s)";
 
 
     //Response Processing
@@ -223,39 +261,35 @@ void CompStore() {
     switch (stoi(option))
     {
         case 1:
-            Storage_unit = "Bit";
+            Storage_unit = "Byte";
             Storage_num = 1;
             break;
         
         case 2:
-            Storage_unit = "Byte";
+            Storage_unit = "Kilobyte";
             Storage_num = 2;
             break;
         
         case 3:
-            Storage_unit = "Kilobyte";
+            Storage_unit = "Megabyte";
             Storage_num = 3;
             break;
         
         case 4:
-            Storage_unit = "Megabyte";
+            Storage_unit = "Gigabyte";
             Storage_num = 4;
             break;
         
         case 5:
-            Storage_unit = "Gigabyte";
+            Storage_unit = "Terabyte";
             Storage_num = 5;
             break;
         
         case 6:
-            Storage_unit = "Terabyte";
+            Storage_unit = "Petabyte";
             Storage_num = 6;
             break;
         
-        case 7:
-            Storage_unit = "Petabyte";
-            Storage_num = 7;
-            break;
     
     }
 
@@ -268,13 +302,12 @@ void CompStore() {
     cout << "\n\n---" << amount << " " << Storage_unit << "(s)---\n\n";
 
     cout << "Select the computer storage unit you would like to convert to";
-    cout << "\n1. Bit(s)";
-    cout << "\n2. Byte(s)";
-    cout << "\n3. Kilobyte(s)";
-    cout << "\n4. Megabyte(s)";
-    cout << "\n5. Gigabyte(s)";
-    cout << "\n6. Terabyte(s)";
-    cout << "\n7. Petabyte(s)";
+    cout << "\n1. Byte(s)";
+    cout << "\n2. Kilobyte(s)";
+    cout << "\n3. Megabyte(s)";
+    cout << "\n4. Gigabyte(s)";
+    cout << "\n5. Terabyte(s)";
+    cout << "\n6. Petabyte(s)";
 
 
     //Response Processing
@@ -295,39 +328,35 @@ void CompStore() {
     switch (stoi(option))
     {
         case 1:
-            convert_to = "Bit";
+            convert_to = "Byte";
             convert_to_num = 1;
             break;
         
         case 2:
-            convert_to = "Byte";
+            convert_to = "Kilobyte";
             convert_to_num = 2;
             break;
         
         case 3:
-            convert_to = "Kilobyte";
+            convert_to = "Megabyte";
             convert_to_num = 3;
             break;
         
         case 4:
-            convert_to = "Megabyte";
+            convert_to = "Gigabyte";
             convert_to_num = 4;
             break;
         
         case 5:
-            convert_to = "Gigabyte";
+            convert_to = "Terabyte";
             convert_to_num = 5;
             break;
         
         case 6:
-            convert_to = "Terabyte";
+            convert_to = "Petabyte";
             convert_to_num = 6;
             break;
         
-        case 7:
-            convert_to = "Petabyte";
-            convert_to_num = 7;
-            break;
     
     }
 
@@ -336,8 +365,15 @@ void CompStore() {
 
     cout << "\n Converting " << amount << " " << Storage_unit << "(s) into " << convert_to << "(s)...\n\n";
 
-    cout << amount << " " << Storage_unit << "(s) in " << convert_to << "(s) is " << convert(7, amount, Storage_num, convert_to_num);
+    string product = convert(7, amount, Storage_num, convert_to_num);
 
+    cout << endl << endl << amount << " " << Storage_unit << "(s) is " << product << " " << convert_to << "(s)";
+
+    cout << "\n\nPress ENTER to proceed";
+
+    getline(cin, option);
+
+    menu();
 
 }
 
@@ -549,19 +585,18 @@ void pull_version() {
 
     cout << "\n------------------------------\n";
 
-    cout << "\nVersion: v2.1.0";
+    cout << "\nVersion: v3.0.0";
 
     cout << "\n\nNotes about this version:";
-    cout << "\n- Current Version contains binary, hexadecimal, and ASCII conversions";
+    cout << "\n- Current Version contains alk conversions other than octal";
     cout << "\n- More necessary computer conversions coming in the future";
-    cout << "\n- Computer Storage Conversions in development soon";
+    cout << "\n- Octal Conversions in development soon";
     cout << "\n- Make sure to keep up-to-date on this GitHub repository to get the latest versions!";
     cout << "\n- PLEASE report any other bugs that are found";
+    cout << "\n- This version may be buggy. It will be refined over time.";
 
     cout << "\n\nChangelog:";
-    cout << "\n- Fixed Hexadecimal Bug";
-    cout << "\n- Hexadecimal numbers no longer ignore 0s and don't place 0s in front of Fs";
-    cout << "\n- Hex to Deci error fixed. Text displayed \"Please enter the number you would like to convert to Hexadecimal: \" prior to bug fix";
+    cout << "\n- Computer Storage Conversions are out now!";
     
 
     cout << "\n\n\nOnly personal and educational use permitted";
@@ -1073,22 +1108,28 @@ string convert(int conversion, string input, int ComputerStorageUnit, int Comput
                 cout << "\n\nprocessing\n\n";
                 for (int i = 0; i < ComputerStorageTo - ComputerStorageUnit; i++) {
                     cout << CS_amount << endl;
-                    CS_amount = CS_amount / 1000;
+                    CS_amount = CS_amount / 1024;
                     product = to_string(CS_amount);
+                    cout << "Product: " << product << endl;
+                }
+                
+            }
+            else if (ComputerStorageUnit > ComputerStorageTo) {
+                cout << "\n\nprocessing\n\n";
+                for (int i = 0; i < ComputerStorageUnit - ComputerStorageTo; i++) {
+                    cout << CS_amount << endl;
+                    CS_amount = CS_amount * 1024;
+                    product = to_string(CS_amount);
+                    cout << "Product: " << product << endl;
                 }
                 
             }
             
-
-            
+            product = to_string(CS_amount);
 
             break;
         
     }
-
-
-
-            
 
     return product;
 }
