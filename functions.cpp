@@ -21,7 +21,7 @@ void menu() {
     cout << "\n\nSelect the action you would like to perform:";
     cout << "\n1. Binary Conversions";
     cout << "\n2. Hexadecimal Conversions";
-    cout << "\n3. Octal Conversions (NEW CONCEPT to CompConv! Coming Soon...)";
+    cout << "\n3. Octal Conversions (NEW!)";
     cout << "\n4. ASCII Conversions";
     cout << "\n5. Computer Storage Conversions";
     cout << "\n6. EXTRAS/Quit Program";
@@ -48,8 +48,8 @@ void menu() {
         hexadecimal();
     }
     else if (option == "3") {
-        cout << "\n\nCurrent Version does not contain these conversions\n\n";
-        menu();
+        //cout << "\n\nCurrent Version does not contain these conversions\n\n";
+        //menu();
         octal();
     }
     else if (option == "4") {
@@ -152,8 +152,8 @@ void octal() {
     //Menu
     cout << "\n\n\nOCTAL CONVERSIONS";
     cout << "\n\nSelect the action you would like to perform:";
-    cout << "\n1. Convert Decimal to Hexadecimal";
-    cout << "\n2. Convert Hexadecimal to Decimal";
+    cout << "\n1. Convert Decimal to Octal";
+    cout << "\n2. Convert Octal to Decimal";
     cout << "\n3. Menu";
 
     //Response Processing
@@ -172,10 +172,10 @@ void octal() {
     }
 
     if (option == "1") {
-        decimal_hex();
+        decimal_oct();
     }
     else if (option == "2") {
-        hex_decimal();
+        oct_decimal();
     }
     else if (option == "3") {
         menu();
@@ -365,7 +365,7 @@ void CompStore() {
 
     cout << "\n Converting " << amount << " " << Storage_unit << "(s) into " << convert_to << "(s)...\n\n";
 
-    string product = convert(7, amount, Storage_num, convert_to_num);
+    string product = convert(9, amount, Storage_num, convert_to_num);
 
     cout << endl << endl << amount << " " << Storage_unit << "(s) is " << product << " " << convert_to << "(s)";
 
@@ -524,7 +524,56 @@ void hex_decimal() {
     hexadecimal();
 }
 
+//Octal Functions
+void decimal_oct() {
+    //Variables
+    string input;
+    string result;
 
+    //User Interface & input retrieval
+    cout << "\n\n\n\n-----------------------------\n\n";
+    cout << "DECIMAL --> OCTAL";
+    cout << "\nProgram will close if characters other than numbers are entered.";
+    cout << "\n\nPlease enter the number you would like to convert to Octal: ";
+
+    getline(cin, input);
+
+    result = convert(5, input);
+
+
+    cout << input << " in Octal is: " << result;
+
+    cout << "\n\nPress ENTER to proceed";
+
+    getline(cin, input);
+
+    octal();
+}
+
+void oct_decimal() {
+    //Variables
+    string input;
+    string result;
+
+    //User Interface & input retrieval
+    cout << "\n\n\n\n-----------------------------\n\n";
+    cout << "OCTAL --> DECIMAL";
+    cout << "\nProgram will close if characters other than numbers are entered.";
+    cout << "\n\nPlease enter the number you would like to convert to Decimal: ";
+
+    getline(cin, input);
+
+    result = convert(6, input);
+
+
+    cout << input << " in decimal is: " << result;
+
+    cout << "\n\nPress ENTER to proceed";
+
+    getline(cin, input);
+
+    octal();
+}
 
 //ASCII Functions
 void text_ASCII() {
@@ -540,7 +589,7 @@ void text_ASCII() {
 
     getline(cin, input);
 
-    result = convert(5, input);
+    result = convert(7, input);
 
 
     cout << "Each individual character is above. Here is " << input << " in ASCII code:\n\n" << result;
@@ -565,7 +614,7 @@ void ASCII_text() {
 
     getline(cin, input);
 
-    result = convert(6, input);
+    result = convert(8, input);
 
 
     cout << "Each individual character is above. Here is " << input << " in text:\n\n" << result;
@@ -585,18 +634,19 @@ void pull_version() {
 
     cout << "\n------------------------------\n";
 
-    cout << "\nVersion: v3.0.0";
+    cout << "\nVersion: v4.0.0";
 
     cout << "\n\nNotes about this version:";
-    cout << "\n- Current Version contains alk conversions other than octal";
-    cout << "\n- More necessary computer conversions coming in the future";
-    cout << "\n- Octal Conversions in development soon";
+    cout << "\n- ALL conversions are now here";
+    cout << "\n- Introducing Octal conversions!";
+    cout << "\n- More Conversions in the future. Conversion Recomendations are accepted!";
     cout << "\n- Make sure to keep up-to-date on this GitHub repository to get the latest versions!";
     cout << "\n- PLEASE report any other bugs that are found";
     cout << "\n- This version may be buggy. It will be refined over time.";
 
     cout << "\n\nChangelog:";
-    cout << "\n- Computer Storage Conversions are out now!";
+    cout << "\n- Octal Conversions are out now!";
+    cout << "\n- All conversions are available to use!";
     
 
     cout << "\n\n\nOnly personal and educational use permitted";
@@ -646,6 +696,7 @@ string convert(int conversion, string input, int ComputerStorageUnit, int Comput
     int value;
     int powerof;
     int value_length = input.length();
+    int octalCount;
 
     string hexing_product;
     string hex_group;
@@ -1057,6 +1108,98 @@ string convert(int conversion, string input, int ComputerStorageUnit, int Comput
 
         case 5:
 
+            value = stoi(input);
+
+            powerof = 0;
+
+            cout << endl << "How to find:\n\n";
+
+            cout << "To find the Octal number of any number, you must first\n";
+            cout << "find the largest value possible from powers of 8 that can be\n";
+            cout << "subtracted from your number. Then, you subtract that large\n";
+            cout << "number from your original number. You may be able to subtract\n";
+            cout << "that number multiple times out of your number before it can't fit\n";
+            cout << "anymore. Now, find out how many times you subtracted that number\n";
+            cout << "from your number to get the first digit of your octal number.\n";
+            cout << "Now, repeat this process until you've subtracted your original number\n";
+            cout << "down to 0. Make sure that you have written your octal digits with the first\n";
+            cout << "one starting on the left and then continuing right. Whatever your set of Octal\n";
+            cout << "digits is by the time that your original number is 0 is the octal\n";
+            cout << "number of your number";
+
+            cout << "\n\nFor example, here is how you convert " << value << " into it's octal number:\n\n";
+
+            while (value >= pow(8, powerof)) {
+                powerof++;
+            }
+            
+            powerof--;
+
+            while (powerof >= 0) {
+                
+                octalCount = 0;
+
+                while (value >= pow(8, powerof)) {
+                    cout << endl << value;
+                    value -= pow(8, powerof);
+                    octalCount++;
+                    cout << " - " << pow(8, powerof) << " = " << value;
+                }
+                
+                cout << "\n\nNo more " << pow(8, powerof) << "s can fit into " << value;
+
+                cout << "\n\nNow count up how many " << pow(8, powerof) << "s were subtracted";
+
+                cout << endl << endl << endl << octalCount << " is a digit of the octal number\n";
+
+                powerof--;
+                product += to_string(octalCount);
+               
+            }
+
+            break;
+
+        case 6:
+            value = 0;
+            powerof = 0;
+
+            cout << endl << "How to find:\n\n";
+
+            cout << "To find the decimal number of any Octal number, you must first\n";
+            cout << "take the end digit (the digit farthest to the right) and starting\n";
+            cout << "from 8^0, multiply the digit of the octal number by 8 to the power\n";
+            cout << "of an increasing number. This means that the first digit (the one all\n";
+            cout << "the way to the right) of the octal number is multiplied by 8^0. Then the\n";
+            cout << "next digit of the octal number (going from right to left) is multiplied\n";
+            cout << "by 8^1. The next one is multiplied by 8^2 and so on and so forth until you\n";
+            cout << "reach the end of the octal number (the left most digit). Now add all the\n";
+            cout << "products together that you got while doing that process.\n";
+            cout << "This is your decimal number.";
+
+            cout << "\n\nFor example, here is how you convert " << input << " into it's decimal number:\n\n";
+
+            for (int i = input.length()-1; i >= 0; i--) {
+
+                cout << endl << input[i] << " is a digit of the octal number";
+                cout << endl << "8^" << powerof << " = " << pow(8, powerof) << endl;
+
+                cout << endl << input[i] << " * " << pow(8, powerof) << " = " << (input[i] - '0') * pow(8, powerof);
+                cout << endl << value;
+
+                value += (input[i] - '0') * pow(8, powerof);
+                powerof++;
+                
+                cout << " + " << (input[i] - '0') * pow(8, powerof - 1) << " = " << value << endl;
+            }
+
+            cout << endl;
+
+            product = to_string(value);
+
+            break;
+
+        case 7:
+
             cout << endl;
             cout << "To convert text into the American Standard Code for Information Interchange\n";
             cout << "(ASCII), you can search the Internet for a chart. There is no complex math\n";
@@ -1074,7 +1217,7 @@ string convert(int conversion, string input, int ComputerStorageUnit, int Comput
 
             break;
         
-        case 6:
+        case 8:
 
             cout << endl;
             cout << "To convert American Standard Code for Information Interchange (ASCII)\n";
@@ -1098,29 +1241,31 @@ string convert(int conversion, string input, int ComputerStorageUnit, int Comput
 
             break;
 
-        case 7:
+        case 9:
 
             toConvert = "1";
             value = 0;
             CS_amount = stoi(input);
 
             if (ComputerStorageUnit < ComputerStorageTo) {
-                cout << "\n\nprocessing\n\n";
+                
+                cout << CS_amount << endl << endl;
                 for (int i = 0; i < ComputerStorageTo - ComputerStorageUnit; i++) {
-                    cout << CS_amount << endl;
+                    cout << CS_amount << " / 1024 = ";
                     CS_amount = CS_amount / 1024;
                     product = to_string(CS_amount);
-                    cout << "Product: " << product << endl;
+                    cout << product << endl;
                 }
                 
             }
             else if (ComputerStorageUnit > ComputerStorageTo) {
-                cout << "\n\nprocessing\n\n";
+                
+                cout << CS_amount << endl << endl;
                 for (int i = 0; i < ComputerStorageUnit - ComputerStorageTo; i++) {
-                    cout << CS_amount << endl;
+                    cout << CS_amount << " * 1024 = ";
                     CS_amount = CS_amount * 1024;
                     product = to_string(CS_amount);
-                    cout << "Product: " << product << endl;
+                    cout << product << endl;
                 }
                 
             }
@@ -1135,7 +1280,5 @@ string convert(int conversion, string input, int ComputerStorageUnit, int Comput
 }
 
     
-
-
 
 //Property of MrScriptDev, 2024
