@@ -1,0 +1,4 @@
+*ANNOUNCEMENTS*
+
+- Easier Menu Navigation will be coming in the near future,
+  along with some code cleanup.
