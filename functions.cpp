@@ -3,6 +3,7 @@
 #include <string>
 #include <cmath>
 #include <sstream>
+#include <conio.h>
 
 //Included Files
 #include "header.hpp"
@@ -15,51 +16,51 @@ using namespace std;
 void menu() {
 
     //Variables
-    string option;
+    char option;
 
     //Menu Display & options
     cout << "\n\nSelect the action you would like to perform:";
     cout << "\n1. Binary Conversions";
     cout << "\n2. Hexadecimal Conversions";
-    cout << "\n3. Octal Conversions (NEW!)";
+    cout << "\n3. Octal Conversions";
     cout << "\n4. ASCII Conversions";
     cout << "\n5. Computer Storage Conversions";
     cout << "\n6. EXTRAS/Quit Program";
 
     //Response Processing
 
-    cout << "\n\nENTER OPTION NUMBER: ";
+    cout << "\n\nPRESS OPTION NUMBER ON KEYBOARD";
 
-    getline(cin, option);
+    option = getch();
 
-    while (option != "1" && option != "2" && option != "3" && option != "4" && option != "5" && option != "6") {
+    while (option != '1' && option != '2' && option != '3' && option != '4' && option != '5' && option != '6') {
         cout << "\n\nInvalid Option. Please choose an option from above.";
 
-        cout << "\n\nENTER OPTION NUMBER: ";
+        cout << "\n\nPRESS OPTION NUMBER ON KEYBOARD";
 
-        getline(cin, option);
+        option = getch();
 
     }
 
-    if (option == "1") {
-        binary();
-    }
-    else if (option == "2") {
-        hexadecimal();
-    }
-    else if (option == "3") {
-        //cout << "\n\nCurrent Version does not contain these conversions\n\n";
-        //menu();
-        octal();
-    }
-    else if (option == "4") {
-        ASCII();
-    }
-    else if (option == "5") {
-        CompStore();
-    }
-    else if (option == "6") {
-        extras();
+    switch (option) {
+        case '1':
+            binary();
+            break;
+        case '2':
+            hexadecimal();
+            break;
+        case '3':
+            octal();
+            break;
+        case '4':
+            ASCII();
+            break;
+        case '5':
+            CompStore();
+            break;
+        case '6':
+            extras();
+            break;
     }
 
 }
@@ -68,7 +69,7 @@ void menu() {
 void binary() {
 
     //Variables    
-    string option;
+    char option;
 
 
     //Menu
@@ -80,26 +81,26 @@ void binary() {
 
     //Response Processing
 
-    cout << "\n\nENTER OPTION NUMBER: ";
+    cout << "\n\nPRESS OPTION NUMBER ON KEYBOARD";
 
-    getline(cin, option);
+    option = getch();
 
-    while (option != "1" && option != "2" && option != "3") {
+    while (option != '1' && option != '2' && option != '3') {
         cout << "\n\nInvalid Option. Please choose an option from above.";
 
-        cout << "\n\nENTER OPTION NUMBER: ";
+        cout << "\n\nPRESS OPTION NUMBER ON KEYBOARD";
 
-        getline(cin, option);
+        option = getch();
 
     }
 
-    if (option == "1") {
+    if (option == '1') {
         decimal_binary();
     }
-    else if (option == "2") {
+    else if (option == '2') {
         binary_decimal();
     }
-    else if (option == "3") {
+    else if (option == '3') {
         menu();
     }
     
@@ -108,7 +109,7 @@ void binary() {
 
 void hexadecimal() {
     //Variables    
-    string option;
+    char option;
 
 
     //Menu
@@ -120,33 +121,33 @@ void hexadecimal() {
 
     //Response Processing
 
-    cout << "\n\nENTER OPTION NUMBER: ";
+    cout << "\n\nPRESS OPTION NUMBER ON KEYBOARD";
 
-    getline(cin, option);
+    option = getch();
 
-    while (option != "1" && option != "2" && option != "3") {
+    while (option != '1' && option != '2' && option != '3') {
         cout << "\n\nInvalid Option. Please choose an option from above.";
 
-        cout << "\n\nENTER OPTION NUMBER: ";
+        cout << "\n\nPRESS OPTION NUMBER ON KEYBOARD";
 
-        getline(cin, option);
+        option = getch();
 
     }
 
-    if (option == "1") {
+    if (option == '1') {
         decimal_hex();
     }
-    else if (option == "2") {
+    else if (option == '2') {
         hex_decimal();
     }
-    else if (option == "3") {
+    else if (option == '3') {
         menu();
     }
 }
 
 void octal() {
-        //Variables    
-    string option;
+    //Variables    
+    char option;
 
 
     //Menu
@@ -158,33 +159,33 @@ void octal() {
 
     //Response Processing
 
-    cout << "\n\nENTER OPTION NUMBER: ";
+    cout << "\n\nPRESS OPTION NUMBER ON KEYBOARD";
 
-    getline(cin, option);
+    option = getch();
 
-    while (option != "1" && option != "2" && option != "3") {
+    while (option != '1' && option != '2' && option != '3') {
         cout << "\n\nInvalid Option. Please choose an option from above.";
 
-        cout << "\n\nENTER OPTION NUMBER: ";
+        cout << "\n\nPRESS OPTION NUMBER ON KEYBOARD";
 
-        getline(cin, option);
+        option = getch();
 
     }
 
-    if (option == "1") {
+    if (option == '1') {
         decimal_oct();
     }
-    else if (option == "2") {
+    else if (option == '2') {
         oct_decimal();
     }
-    else if (option == "3") {
+    else if (option == '3') {
         menu();
     }
 }
 
 void ASCII() {
     //Variables    
-    string option;
+    char option;
 
 
     //Menu
@@ -196,26 +197,26 @@ void ASCII() {
 
     //Response Processing
 
-    cout << "\n\nENTER OPTION NUMBER: ";
-    
-    getline(cin, option);
+    cout << "\n\nPRESS OPTION NUMBER ON KEYBOARD";
 
-    while (option != "1" && option != "2" && option != "3") {
+    option = getch();
+
+    while (option != '1' && option != '2' && option != '3') {
         cout << "\n\nInvalid Option. Please choose an option from above.";
 
-        cout << "\n\nENTER OPTION NUMBER: ";
+        cout << "\n\nPRESS OPTION NUMBER ON KEYBOARD";
 
-        getline(cin, option);
+        option = getch();
 
     }
 
-    if (option == "1") {
+    if (option == '1') {
         text_ASCII();
     }
-    else if (option == "2") {
+    else if (option == '2') {
         ASCII_text();
     }
-    else if (option == "3") {
+    else if (option == '3') {
         menu();
     }
 
@@ -379,7 +380,7 @@ void CompStore() {
 
 void extras() {
     //Variables    
-    string option;
+    char option;
 
 
     //Menu
@@ -391,27 +392,27 @@ void extras() {
 
     //Response Processing
 
-    cout << "\n\nENTER OPTION NUMBER: ";
-    
-    getline(cin, option);
+    cout << "\n\nPRESS OPTION NUMBER ON KEYBOARD";
 
-    while (option != "1" && option != "2" && option != "3") {
+    option = getch();
+
+    while (option != '1' && option != '2' && option != '3') {
         cout << "\n\nInvalid Option. Please choose an option from above.";
 
-        cout << "\n\nENTER OPTION NUMBER: ";
+        cout << "\n\nPRESS OPTION NUMBER ON KEYBOARD";
 
-        getline(cin, option);
+        option = getch();
 
     }
 
-    if (option == "1") {
+    if (option == '1') {
         pull_version();
         extras();
     }
-    else if (option == "2") {
+    else if (option == '2') {
         exit_program();
     }
-    else if (option == "3") {
+    else if (option == '3') {
         menu();
     }
 }
@@ -634,19 +635,20 @@ void pull_version() {
 
     cout << "\n------------------------------\n";
 
-    cout << "\nVersion: v4.0.0";
+    cout << "\nVersion: v4.1.0";
 
     cout << "\n\nNotes about this version:";
     cout << "\n- ALL conversions are now here";
     cout << "\n- Introducing Octal conversions!";
+    cout << "\n- Easier Menu Navigation is here!";
     cout << "\n- More Conversions in the future. Conversion Recomendations are accepted!";
     cout << "\n- Make sure to keep up-to-date on this GitHub repository to get the latest versions!";
     cout << "\n- PLEASE report any other bugs that are found";
     cout << "\n- This version may be buggy. It will be refined over time.";
 
     cout << "\n\nChangelog:";
-    cout << "\n- Octal Conversions are out now!";
-    cout << "\n- All conversions are available to use!";
+    cout << "\n- Easier Menu Navigation has been added.";
+    cout << "\n- Code Cleanup has begun! CompConv will be more organized to look at in the GitHub Repository.";
     
 
     cout << "\n\n\nOnly personal and educational use permitted";
@@ -655,28 +657,29 @@ void pull_version() {
 
     cout << "\n\n------------------------------\n";
 
+    //Updated last on 12/12/2024
     
 }
 
 void exit_program() {
     
     //Variables
-    string option;
+    char option;
 
 
     //Exit Dialogue
     cout << "\n\nAre you sure you would like to exit CompConv?" << "\n1. Yes" << "\n2. No";
-    cout << "\n\nENTER OPTION NUMBER: ";
+    cout << "\n\nPRESS OPTION NUMBER ON KEYBOARD";
 
-    getline(cin, option);
+    option = getch();
 
-    while (option != "1" && option != "2") {
+    while (option != '1' && option != '2') {
         cout << "\n\nInvalid option. Please enter a possible option.";
-        cout << "\n\nENTER OPTION NUMBER: ";
-        getline(cin, option);
+        cout << "\n\nPRESS OPTION NUMBER ON KEYBOARD";
+        option = getch();
     }
 
-    if (option == "1") {
+    if (option == '1') {
         exit(0);
     }
     else {
@@ -687,6 +690,8 @@ void exit_program() {
 }
 
 //Conversion Function
+
+//This function contains EVERY conversion that is in CompConv
 
 string convert(int conversion, string input, int ComputerStorageUnit, int ComputerStorageTo) {
 
@@ -711,7 +716,8 @@ string convert(int conversion, string input, int ComputerStorageUnit, int Comput
     
 
     switch(conversion) {
-
+        
+        //Decimal to Binary
         case 1:
             
             
@@ -766,7 +772,7 @@ string convert(int conversion, string input, int ComputerStorageUnit, int Comput
 
 
 
-
+        //Binary to Decimal
         case 2:
 
             
@@ -814,6 +820,7 @@ string convert(int conversion, string input, int ComputerStorageUnit, int Comput
 
             break;
         
+        //Decimal to Hexadecimal
         case 3:
             powerof = 0;
             
@@ -962,6 +969,7 @@ string convert(int conversion, string input, int ComputerStorageUnit, int Comput
 
             break;
 
+        //Hexadecimal to Decimal
         case 4:
 
             powerof = 0;
@@ -1105,7 +1113,7 @@ string convert(int conversion, string input, int ComputerStorageUnit, int Comput
                 break;
             
 
-
+        //Decimal to Octal
         case 5:
 
             value = stoi(input);
@@ -1159,6 +1167,7 @@ string convert(int conversion, string input, int ComputerStorageUnit, int Comput
 
             break;
 
+        //Octal to Decimal
         case 6:
             value = 0;
             powerof = 0;
@@ -1197,7 +1206,8 @@ string convert(int conversion, string input, int ComputerStorageUnit, int Comput
             product = to_string(value);
 
             break;
-
+        
+        //Text to ASCII
         case 7:
 
             cout << endl;
@@ -1217,6 +1227,7 @@ string convert(int conversion, string input, int ComputerStorageUnit, int Comput
 
             break;
         
+        //ASCII to Text
         case 8:
 
             cout << endl;
@@ -1241,6 +1252,7 @@ string convert(int conversion, string input, int ComputerStorageUnit, int Comput
 
             break;
 
+        //Computer Storage Conversions
         case 9:
 
             toConvert = "1";
@@ -1276,9 +1288,9 @@ string convert(int conversion, string input, int ComputerStorageUnit, int Comput
         
     }
 
+    //The product is updated at the end of each of these cases. The product when it is returned always contains the conversion.
     return product;
 }
 
     
-
 //Property of MrScriptDev, 2024
