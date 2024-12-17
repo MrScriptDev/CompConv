@@ -1,7 +1,7 @@
 *ANNOUNCEMENTS*
 
-- Easier Menu Navigation will be coming in the near future,
-  along with some code cleanup.
+- Code cleanup may take a while, but it is in progress
+- Code cleanup isn't fully finished yet. This is a start, but it may revert back to the original format for a different method of organizing.
 
 
 MAJOR UPDATE PLANS!

@@ -16,7 +16,7 @@
  included in the files of this repository and edit them. Please don't re-post
  the same code.
 
- Current Version: v4.1.0
+ Current Version: v4.2.0
 
  Made by MrScriptDev
  Property of MrScriptDev

@@ -27,7 +27,9 @@ void decimal_hex();
 
 void hex_decimal();
 
-
+//Octal Functions
+void decimal_oct();
+void oct_decimal();
 
 //ASCII Functions
 void text_ASCII();
