@@ -47,6 +47,6 @@ void exit_program();
 std::string convert(int conversion, std::string input, int ComputerStorageUnit = 0, int ComputerStorageTo = 0);
 
 //Extra functions
+int string_int(std::string input);
 
-
-//Property of MrScriptDev, 2024
+//Property of MrScriptDev, 2025

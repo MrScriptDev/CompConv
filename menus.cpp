@@ -111,30 +111,23 @@ void pull_version() {
 
     cout << "\n------------------------------\n";
 
-    cout << "\nVersion: v4.2.0";
+    cout << "\nVersion: v4.2.1";
 
     cout << "\n\nNotes about this version:";
-    cout << "\n- Code is all cleaned up!";
-    cout << "\n- CompConv is now more organized for viewers on GitHub";
-    cout << "\n- Easier Menu Navigation is here!";
-    cout << "\n- More Conversions in the future. Conversion Recomendations are accepted!";
-    cout << "\n- Make sure to keep up-to-date on this GitHub repository to get the latest versions!";
-    cout << "\n- PLEASE report any other bugs that are found";
+    cout << "\n- Happy New Year!";
+    cout << "\n- Credentials Updated";
 
     cout << "\n\nChangelog:";
-    cout << "\n- Easier Menu Navigation has been added.";
-    cout << "\n- Code has been organized much better. GitHub users can now see that CompConv is split up into";
-    cout << "\nmultiple files instead of having a huge \"functions\" file.";
-    cout << "\n- Code Cleanup isn't over! We're still experimenting with different organization methods.";
+    cout << "\n- Changed Credential Comments to 2025";
     
 
     cout << "\n\n\nOnly personal and educational use permitted";
     
-    cout << "\n\nMrScriptDev 2024";
+    cout << "\n\nMrScriptDev 2025";
 
     cout << "\n\n------------------------------\n";
 
-    //Updated last on 12/12/2024
+    //Updated last on 1/27/2025
     
 }
 
@@ -166,4 +159,4 @@ void exit_program() {
 
 }
 
-//Property of MrScriptDev, 2024
+//Property of MrScriptDev, 2025

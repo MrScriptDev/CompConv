@@ -11,6 +11,41 @@
 //Namespace
 using namespace std;
 
+//Personal STOI() function. The built in one wasn't cutting it because once the string exeeded a certain length, the stoi() function would close the program
+int string_int(std::string input) {
+
+    int int_input = 0;
+
+    //Check if string contains characters other than numbers. If it does, it returns a 0 to not interrupt the rest of the program's processes.
+    for (int i = 0; i < input.length(); i++) {
+        if (input[i] != '0' && input[i] != '1' && input[i] != '2' && input[i] != '3' && input[i] != '4' && input[i] != '5' && input[i] != '6' && input[i] != '7' && input[i] != '8' && input[i] != '9' && input[i] != '-') {
+            std::cout << "\n\nCan't convert. String contains characters other than numbers\n";
+            return 0;
+        }
+    }
+
+    //Convert string to int
+    int x = 0;
+    for (int i = input.length() - 1; i >= 0; i--) {
+        //Check if negative symbol
+        if (input[i] == '-') {
+            //If it is, then change the number to a negative number
+            int_input = -int_input;
+        }
+        else {
+            //If it isn't a negative symbol
+            //Take variable the next digit in the input and turn it into an int, then multiply it by the place it's in
+            int_input += (input[i] - '0') * pow(10, x);
+            x++;
+        }
+    }
+
+    return int_input;
+}
+
+
+
+
 //Conversion Function
 
 //This function contains EVERY conversion that is in CompConv
@@ -45,7 +80,7 @@ string convert(int conversion, string input, int ComputerStorageUnit, int Comput
             
             powerof = 0;
             
-            value = stoi(input);
+            value = string_int(input);
 
 
             cout << endl << "How to find:\n\n";
@@ -146,7 +181,7 @@ string convert(int conversion, string input, int ComputerStorageUnit, int Comput
         case 3:
             powerof = 0;
             
-            value = stoi(input);
+            value = string_int(input);
 
             product = "";
 
@@ -438,7 +473,7 @@ string convert(int conversion, string input, int ComputerStorageUnit, int Comput
         //Decimal to Octal
         case 5:
 
-            value = stoi(input);
+            value = string_int(input);
 
             powerof = 0;
 
@@ -562,9 +597,9 @@ string convert(int conversion, string input, int ComputerStorageUnit, int Comput
 
             while (getline(breaking, decode, ' ')) {
                 
-                product += char(stoi(decode));
+                product += char(string_int(decode));
 
-                cout << decode << " in text is " << char(stoi(decode)) << endl;
+                cout << decode << " in text is " << char(string_int(decode)) << endl;
 
                 decode = "";
             }
@@ -579,7 +614,7 @@ string convert(int conversion, string input, int ComputerStorageUnit, int Comput
 
             toConvert = "1";
             value = 0;
-            CS_amount = stoi(input);
+            CS_amount = string_int(input);
 
             if (ComputerStorageUnit < ComputerStorageTo) {
                 
@@ -615,4 +650,4 @@ string convert(int conversion, string input, int ComputerStorageUnit, int Comput
 }
 
     
-//Property of MrScriptDev, 2024
+//Property of MrScriptDev, 2025
